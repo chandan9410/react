@@ -19,9 +19,9 @@ function App() {
   };
   return (
     <>
-      <h1> chai garam pini thii </h1>
+      <h1>  counter increment and decrement </h1>
       <h2>counetr value : {counter} </h2>
-      <button onClick={addvalue}>add value </button>
+      <button onClick={addvalue}>add value: {counter} </button>
       <button onClick={removevalue}> remove value : {counter} </button>
       <p>footer: {counter}</p>
     </>
