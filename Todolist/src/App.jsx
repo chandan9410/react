@@ -3,31 +3,32 @@ import { TodoProvider } from "./contexts";
 import "./App.css";
 import TodoForm from "./components/TodoForm";
 import TodoItem from "./components/TodoItem";
+import { preview } from "vite";
 
 function App() {
   const [todos, setTodos] = useState([]);
-
-  const addTodo = (todo) => {
-    setTodos((prev) => [{ id: Date.now(), ...todo }, ...prev]);
+  const addTodo = () => {
+    //  ...todo: The spread operator (...) is used to 
+    // include all properties of the todo object into the new object.
+    // the rest items of prevtodo array are added  to the array using the spread operator ( ...prevTodo)
+    setTodos((prevTodo) => [{ id: Date.now(), ...todo }, ...prevTodo]);
   };
-
   const updateTodo = (id, todo) => {
     setTodos((prev) =>
-      prev.map((prevTodo) => (prevTodo.id === id ? todo : prevTodo))
+      prev.map((prevTodo) => // traversing the array
+        (prevTodo.id === id ? todo : prevTodo))
     );
   };
 
   const deleteTodo = (id) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+    setTodos((prevTodo) => prev.filter((todo) => todo.id !== id));
   };
 
   const toggleComplete = (id) => {
-    //console.log(id);
     setTodos((prev) =>
       prev.map((prevTodo) =>
-        prevTodo.id === id
-          ? { ...prevTodo, completed: !prevTodo.completed }
-          : prevTodo
+        // first we take all  values (...prevTodo) then we overwrite  that value
+        prevTodo.id === id ? { ...prevTodo, completed: !prevTodo } : prevTodo
       )
     );
   };
