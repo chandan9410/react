@@ -9,14 +9,14 @@ import { Outlet } from "react-router-dom";
 function App() {
   const [loading, setLoading] = useState(true);
   // Dispatch :  accepts an object that represents the type of action
-  // we want to execute when it is called. Basically, 
+  // we want to execute when it is called. Basically,
   //it sends the type of action to the reducer function to perform its job,
   // which, of course, is updating the state
   const dispatch = useDispatch();
 
   useEffect(() => {
     authService
-      .getCurrentUser()  
+      .getCurrentUser()
       .then((userData) => {
         if (userData) {
           dispatch(login({ userData }));
