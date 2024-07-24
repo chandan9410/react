@@ -1,16 +1,16 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
+import UserContext from './context/Usercontext';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <UserContext>
       <h1> context api </h1>
-    </>
+    </UserContext>
   )
 }
 
-export default App
+export default App;
